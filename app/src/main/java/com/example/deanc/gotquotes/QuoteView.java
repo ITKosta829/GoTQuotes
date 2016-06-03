@@ -7,8 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,7 +39,7 @@ public class QuoteView extends Fragment {
         charName.setTypeface(tf);
 
         theQuote = (TextView) view.findViewById(R.id.chosenQuote);
-        theQuote.setText(quote.getSaid());
+        theQuote.setText( "\"" + quote.getSaid() + "\"");
         theQuote.setTypeface(tf);
 
         return view;
