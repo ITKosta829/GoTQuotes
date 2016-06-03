@@ -21,7 +21,7 @@ public class Shake extends android.support.v4.app.Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        view = inflater.inflate(R.layout.shake, null);
+        view = inflater.inflate(R.layout.shake, container, false);
 
         Toast.makeText(getContext(), "Give us a shake!", Toast.LENGTH_LONG);
 

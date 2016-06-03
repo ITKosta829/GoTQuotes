@@ -21,7 +21,7 @@ public class TitlePage extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        view = inflater.inflate(R.layout.title_page, null);
+        view = inflater.inflate(R.layout.title_page, container, false);
 
         return view;
     }

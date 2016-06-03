@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,7 +16,7 @@ import com.example.deanc.gotquotes.fragments.TitlePage;
 import java.io.IOException;
 
 
-public class MainActivity extends AppCompatActivity implements MyActivity {
+public class MainActivity extends AppCompatActivity implements MyActivity, MediaPlayer.OnPreparedListener {
 
     String url;
     MediaPlayer mediaPlayer;
@@ -55,7 +54,11 @@ public class MainActivity extends AppCompatActivity implements MyActivity {
         mAccelerometer = mSensorManager
                 .getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mShakeDetector = new ShakeDetector();
+        mSensorManager.registerListener(mShakeDetector, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+
+
         mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
+
             @Override
             public void onShake(int count) {
                 Log.d("onShake", "CALLED");
@@ -67,20 +70,20 @@ public class MainActivity extends AppCompatActivity implements MyActivity {
 
     public void playMusic() {
 
-        mediaPlayer = new MediaPlayer();
-        url = "https://soundcloud.com/fatihizm/game-of-thrones-main-theme";
-        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.game_of_thrones);
+//        url = "https://soundcloud.com/fatihizm/game-of-thrones-main-theme";
+//        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         try {
-            mediaPlayer.setDataSource(url);
+
+            mediaPlayer.setOnPreparedListener(this);
+            mediaPlayer.prepareAsync();
         } catch (IllegalArgumentException e) {
 
         } catch (SecurityException e) {
 
         } catch (IllegalStateException e) {
 
-        } catch (IOException e) {
-            e.printStackTrace();
         }
 
         try {
@@ -91,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements MyActivity {
 
         }
 
-        mediaPlayer.start();
+
 
     }
 
@@ -103,6 +106,22 @@ public class MainActivity extends AppCompatActivity implements MyActivity {
     }
 
 
+    @Override
+    public void onPrepared(MediaPlayer mp) {
+        mp.start();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mediaPlayer.start();
+//        mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+    }
 
+    @Override
+    protected void onPause() {
+//        mSensorManager.unregisterListener(mSensorListener);
+        mediaPlayer.stop();
+        super.onPause();
+    }
 }

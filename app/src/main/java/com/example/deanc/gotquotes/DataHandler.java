@@ -2,7 +2,6 @@ package com.example.deanc.gotquotes;
 
 import android.util.Log;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -81,7 +80,7 @@ public class DataHandler {
     }
 
     public String makeNetworkCall() {
-        int random = (int) (Math.round(Math.random()*10) + 1);
+        int random = (int) (Math.round(Math.random()*10) + 1)-1;
         Log.d("RANDOM", Integer.toString(random));
 
         HttpURLConnection con = null;
@@ -109,8 +108,9 @@ public class DataHandler {
                 buffer.append(line + "\n");
             }
             Log.d("response_received", "true");
-            JSONArray jsonArray = new JSONArray(buffer.toString());
-            JSONObject jsonObject = jsonArray.getJSONObject(0);
+//            JSONArray jsonArray = new JSONArray(buffer.toString());
+            JSONObject jsonObject = new JSONObject(buffer.toString());
+
 
             return setSelectedQuote(new Quote(jsonObject.getString("character"), jsonObject.getString("quote"))
             , random);
