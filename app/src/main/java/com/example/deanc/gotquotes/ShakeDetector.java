@@ -1,6 +1,5 @@
 package com.example.deanc.gotquotes;
 
-import android.app.Activity;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -9,7 +8,7 @@ import android.hardware.SensorManager;
 /**
  * Created by DeanC on 6/3/2016.
  */
-public class ShakeActivity extends Activity implements SensorEventListener{
+public class ShakeDetector implements SensorEventListener{
 
     private static final float SHAKE_THRESHOLD_GRAVITY = 2.7F;
     private static final int SHAKE_SLOP_TIME_MS = 500;

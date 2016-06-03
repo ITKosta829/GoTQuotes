@@ -35,6 +35,7 @@ public class DataHandler {
 
     private String setSelectedQuote(Quote selectedQuote, int random) {
         this.selectedQuote = selectedQuote;
+        Log.d("setSelectedQuote", "CALLED");
 
         return setQuoteImage(random);
     }
@@ -43,39 +44,39 @@ public class DataHandler {
 
         switch (characters[random]){
             case "bronn":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.bronn);
                 break;
             case "jaime":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.jaime);
                 break;
             case "cersei":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.cersei);
                 break;
             case "tyrion":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.tyrion);
                 break;
             case "varys":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.varys);
                 break;
             case "renly":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.renly);
                 break;
             case "hound":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.hound);
                 break;
             case "littlefinger":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.littlefinger);
                 break;
             case "olenna":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.olenna);
                 break;
             case "brynden":
-//                selectedQuote.setImageResource();
+                selectedQuote.setImageResource(R.drawable.brynden);
                 break;
             default:
                 break;
         }
-
+        Log.d("quoteImage", "SET");
         return "OK";
     }
 
@@ -107,7 +108,7 @@ public class DataHandler {
             while ((line = reader.readLine()) != null) {
                 buffer.append(line + "\n");
             }
-
+            Log.d("response_received", "true");
             JSONArray jsonArray = new JSONArray(buffer.toString());
             JSONObject jsonObject = jsonArray.getJSONObject(0);
 
