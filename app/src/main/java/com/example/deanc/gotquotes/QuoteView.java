@@ -23,7 +23,7 @@ public class QuoteView extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        view = inflater.inflate(R.layout.quote_view, container);
+        view = inflater.inflate(R.layout.quote_view, container, false);
         dataHandler = DataHandler.getInstance();
         quote = dataHandler.getSelectedQuote();
 
