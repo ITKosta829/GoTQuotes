@@ -7,8 +7,6 @@
     android:columnCount="2"
     android:orientation="horizontal">
 
-
-
     <ImageView
         android:id="@+id/bronn"
         android:layout_width="100dp"
@@ -98,7 +96,5 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:src="@drawable/varys" />
->>>>>>> 4c43c8384d0ccb13a7fd2e4c92b7984411a9c225
-
 
 </GridLayout>
