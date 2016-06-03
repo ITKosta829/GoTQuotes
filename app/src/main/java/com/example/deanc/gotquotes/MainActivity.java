@@ -13,7 +13,7 @@ import com.example.deanc.gotquotes.fragments.TitlePage;
 import java.io.IOException;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MyActivity {
 
     String url;
     MediaPlayer mediaPlayer;
@@ -69,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mediaPlayer.start();
+
+    }
+
+    @Override
+    public void showMeTheQuote() {
 
     }
 }
