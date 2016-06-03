@@ -12,29 +12,32 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp" />
+        android:layout_marginTop="80dp" />
 
     <TextView
         android:id="@+id/characterName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
         android:text="Testing"
-        android:textColor="@color/yellowText"
-        android:textSize="40sp"
+        android:textColor="#ffffff"
+        android:textSize="50sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/chosenQuote"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="Testing"
-        android:textColor="@color/yellowText"
-        android:textSize="35sp"
-        android:textStyle="bold" />
+        android:textColor="#ffffff"
+        android:textSize="35sp" />
 
 
 </LinearLayout>

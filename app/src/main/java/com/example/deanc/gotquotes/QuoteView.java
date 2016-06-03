@@ -30,7 +30,7 @@ public class QuoteView extends Fragment {
         dataHandler = DataHandler.getInstance();
         quote = dataHandler.getSelectedQuote();
 
-        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "BLKCHRY.TTF");
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(), "BLKCHCRY.TTF");
 
         ImageView imageView = (ImageView) view.findViewById(R.id.characterFace);
         imageView.setImageResource(quote.getImageResource());

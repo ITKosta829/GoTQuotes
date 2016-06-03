@@ -42,12 +42,12 @@ public class MainActivity extends AppCompatActivity implements MyActivity, Media
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                //Second fragment after 7 seconds appears
+                //Second fragment after 4 seconds appears
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, new Shake())
                         .commit();
             }
-        }, 3000);
+        }, 4000);
 
         // ShakeDetector initialization
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -71,8 +71,6 @@ public class MainActivity extends AppCompatActivity implements MyActivity, Media
     public void playMusic() {
 
         mediaPlayer = MediaPlayer.create(MainActivity.this, R.raw.game_of_thrones);
-//        url = "https://soundcloud.com/fatihizm/game-of-thrones-main-theme";
-//        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         try {
 
@@ -94,8 +92,6 @@ public class MainActivity extends AppCompatActivity implements MyActivity, Media
 
         }
 
-
-
     }
 
     @Override
@@ -104,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements MyActivity, Media
                 .replace(R.id.fragment_container, new QuoteView())
                 .commit();
     }
-
 
     @Override
     public void onPrepared(MediaPlayer mp) {
@@ -115,12 +110,10 @@ public class MainActivity extends AppCompatActivity implements MyActivity, Media
     protected void onResume() {
         super.onResume();
         mediaPlayer.start();
-//        mSensorManager.registerListener(mSensorListener, mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     @Override
     protected void onPause() {
-//        mSensorManager.unregisterListener(mSensorListener);
         mediaPlayer.stop();
         super.onPause();
     }

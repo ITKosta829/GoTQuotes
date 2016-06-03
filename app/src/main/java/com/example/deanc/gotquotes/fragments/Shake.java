@@ -23,7 +23,7 @@ public class Shake extends android.support.v4.app.Fragment{
 
         view = inflater.inflate(R.layout.shake, container, false);
 
-        Toast.makeText(getContext(), "Give us a shake!", Toast.LENGTH_LONG);
+        Toast.makeText(getContext(), "Give us a shake for a random quote!!", Toast.LENGTH_LONG).show();
 
         return view;
     }
